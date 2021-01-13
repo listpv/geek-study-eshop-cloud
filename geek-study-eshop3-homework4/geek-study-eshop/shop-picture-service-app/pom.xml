@@ -9,7 +9,6 @@
     </parent>
 
     <artifactId>shop-picture-service-app</artifactId>
-
     <name>shop-picture-service-app</name>
     <description>Demo project for Spring Boot</description>
 
@@ -18,7 +17,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>ru.geekbrains</groupId>
             <artifactId>shop-picture-service</artifactId>
@@ -29,16 +27,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-config-client</artifactId>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
