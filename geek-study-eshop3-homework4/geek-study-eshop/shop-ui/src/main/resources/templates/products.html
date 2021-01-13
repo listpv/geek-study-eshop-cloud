@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head">
+</head>
+
+<body>
+
+<!-- 
+	Upper Header Section 
+-->
+<div th:replace="fragments/header :: upper_header" class="navbar navbar-inverse navbar-fixed-top">
+</div>
+
+<!--
+Lower Header Section 
+-->
+<div class="container">
+    <div id="gototop"></div>
+    <header th:replace="fragments/header :: lower_header" id="header">
+    </header>
+
+    <!--
+    Navigation Bar Section
+    -->
+    <div th:replace="fragments/header :: navbar" class="navbar">
+    </div>
+    <!--
+    Body Section
+    -->
+    <div class="row">
+        <div th:replace="fragments/sidebar ::sidebar" id="sidebar" class="col-md-3">
+        </div>
+
+        <div class="col-md-9">
+            <!--
+            New Products
+            -->
+            <div class="well well-sm">
+                <h3>Our Products </h3>
+                <div th:each="prodGroup : ${products}" class="row">
+                    <ul class="list-unstyled">
+                        <li th:each="prod : ${prodGroup}" class="col-md-4">
+                            <div class="thumbnail">
+                                <a class="zoomTool" th:href="@{/product_details/{id}(id=${prod.id})}" title="add to cart"><span
+                                        class="icon-search"></span> QUICK VIEW</a>
+                                <a th:href="@{/product_details/{id}(id=${prod.id})}">
+                                    <img th:src="@{/picture/{id}(id=${prod.mainPictureId})}" alt="">
+                                </a>
+                                <div class="caption cntr">
+                                    <p th:text="${prod.name}">Manicure & Pedicure</p>
+                                    <p>
+                                        <strong>
+                                            $<span th:text="${prod.price}" th:remove="tag">$22.00</span>
+                                        </strong>
+                                    </p>
+                                    <h4>
+                                        <form th:action="@{/cart}" method="post">
+                                            <input type="hidden" name="qty" value="1"/>
+                                            <input type="hidden" name="productId" th:value="${prod.id}">
+                                            <button class="shopBtn" type="submit" title="add to cart"> Add to cart </button>
+                                        </form>
+                                    </h4>
+                                    <div class="actionList">
+                                        <a class="pull-left" href="#">Add to Wish List </a>
+                                        <a class="pull-left" href="#"> Add to Compare </a>
+                                    </div>
+                                    <br class="clr">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--
+    Clients
+    -->
+    <section th:replace="fragments/footer :: our_client" class="our_client">
+    </section>
+
+    <!--
+    Footer
+    -->
+    <footer th:replace="fragments/footer :: footer" class="footer">
+    </footer>
+</div><!-- /container -->
+
+<div th:replace="fragments/footer :: copyright" class="copyright">
+</div>
+
+<script th:replace="fragments/footer :: scripts"></script>
+
+</body>
+</html>
