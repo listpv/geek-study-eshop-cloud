@@ -4,9 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.geekbrains.persist.model.Product;
 import ru.geekbrains.service.PictureService;
 
 import javax.servlet.http.HttpServletResponse;
@@ -39,9 +41,18 @@ public class PictureController {
         }
     }
 
-    @GetMapping("/removeOne/{picture_id}")
-    public String removeOne(@PathVariable(name = "picture_id") Long pictureId) {
-        pictureService.deleteById(pictureId);
-        return "redirect:/products";
+    // 1-й способ удаленмя картинки.
+//    @DeleteMapping("/{picture_id}")
+//    public String removeOne(@PathVariable(name = "picture_id") Long pictureId) {
+//        pictureService.deleteById(pictureId);
+//        return "redirect:/products";
+//    }
+
+    // 2-й способ удаленмя картинки, основной !!!
+    @DeleteMapping("/{pictureId}")
+    public String deletePicture(@PathVariable("pictureId") Long pictureId) {
+        Product product = pictureService.getProductByPictureId(pictureId).get();
+        pictureService.removePicture(pictureId);
+        return "redirect:/product/" + product.getId() + "/edit";
     }
 }

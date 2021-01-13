@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.PictureData;
+import ru.geekbrains.persist.model.Product;
 import ru.geekbrains.persist.repo.PictureRepository;
 
 import java.io.IOException;
@@ -93,10 +95,17 @@ public class PictureServiceFileImpl implements PictureService{
     }
 
     @Override
+    public Optional<Product> getProductByPictureId(long id) {
+        return repository.findById(id)
+                .map(Picture::getProduct);
+    }
+
+    @Override
     public List<Picture> findAll() {
         return repository.findAllFilenameNotNull();
     }
 
+    // 1-й способ удаленмя картинки.
     @Override
     public void deleteById(Long id) {
         String fileName = repository.findFileNameById(id);
@@ -106,5 +115,21 @@ public class PictureServiceFileImpl implements PictureService{
             e.printStackTrace();
         }
         repository.deleteById(id);
+    }
+
+    // 2-й способ удаленмя картинки, основной !!!
+    @Override
+    @Transactional
+    public void removePicture(Long id) {
+        Optional<Picture> opt = repository.findById(id);
+        if (opt.isPresent()) {
+            Picture picture = opt.get();
+            try {
+                Files.delete(Path.of(storagePath, picture.getPictureData().getFileName()));
+            } catch (IOException ex) {
+                throw new IllegalStateException(ex);
+            }
+            repository.delete(picture);
+        }
     }
 }

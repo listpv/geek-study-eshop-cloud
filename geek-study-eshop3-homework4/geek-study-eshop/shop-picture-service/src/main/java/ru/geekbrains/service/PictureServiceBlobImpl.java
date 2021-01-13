@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.PictureData;
+import ru.geekbrains.persist.model.Product;
 import ru.geekbrains.persist.repo.PictureRepository;
 
 import java.util.List;
@@ -55,12 +56,25 @@ public class PictureServiceBlobImpl implements PictureService {
     }
 
     @Override
+    public Optional<Product> getProductByPictureId(long id) {
+        return repository.findById(id)
+                .map(Picture::getProduct);
+    }
+
+    @Override
     public List<Picture> findAll() {
         return repository.findAllDataNotNull();
     }
 
+    // 1-й способ удаленмя картинки.
     @Override
     public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+    // 2-й способ удаленмя картинки, основной !!!
+    @Override
+    public void removePicture(Long id) {
         repository.deleteById(id);
     }
 }

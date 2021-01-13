@@ -2,6 +2,7 @@ package ru.geekbrains.service;
 
 import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.PictureData;
+import ru.geekbrains.persist.model.Product;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,8 @@ public interface PictureService {
 
     PictureData createPictureData(byte[] picture);
 
+    Optional<Product> getProductByPictureId(long id);
+
     // TODO перенести сюда функционал получения списка картинок
 
     List<Picture> findAll();
@@ -21,4 +24,6 @@ public interface PictureService {
     // TODO перенести сюда функционал для удаления картинок
 
     void deleteById(Long id);
+
+    void removePicture(Long id);
 }

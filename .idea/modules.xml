@@ -7,7 +7,9 @@
       <module fileurl="file://$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-admin-ui/shop-admin-ui.iml" filepath="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-admin-ui/shop-admin-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-database/shop-database.iml" filepath="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-database/shop-database.iml" />
       <module fileurl="file://$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-picture-service/shop-picture-service.iml" filepath="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-picture-service/shop-picture-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-picture-service-app/shop-picture-service-app.iml" filepath="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-picture-service-app/shop-picture-service-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-ui/shop-ui.iml" filepath="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-ui/shop-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/spring-cloud-config/spring-cloud-config.iml" filepath="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/spring-cloud-config/spring-cloud-config.iml" />
     </modules>
   </component>
 </project>
