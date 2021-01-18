@@ -45,7 +45,8 @@ Lower Header Section
                                 <a class="zoomTool" th:href="@{/product_details/{id}(id=${prod.id})}" title="add to cart"><span
                                         class="icon-search"></span> QUICK VIEW</a>
                                 <a th:href="@{/product_details/{id}(id=${prod.id})}">
-                                    <img th:src="@{/picture/{id}(id=${prod.mainPictureId})}" alt="">
+<!--                                    <img th:src="@{/picture/{id}(id=${prod.mainPictureId})}" alt="">-->
+                                    <img th:src="@{{pictureServiceUrl}/picture/{id}(id=${prod.mainPictureId}, pictureServiceUrl=${pictureServiceUrl})}" alt="">
                                 </a>
                                 <div class="caption cntr">
                                     <p th:text="${prod.name}">Manicure & Pedicure</p>

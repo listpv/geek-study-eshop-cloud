@@ -6,6 +6,8 @@
         <option value="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/pom.xml" />
         <option value="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/shop-picture-service-app/pom.xml" />
         <option value="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/spring-cloud-config/pom.xml" />
+        <option value="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/spring-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/geek-study-eshop3-homework4/geek-study-eshop/spring-gateway/pom.xml" />
       </list>
     </option>
   </component>

@@ -52,7 +52,9 @@ Lower Header Section
                     </thead>
                     <tbody>
                     <tr th:each="lineItem : ${lineItems}">
-                        <td><img width="100" th:src="@{/picture/{id}(id=${lineItem.productRepr.pictureIds[0]})}" alt="">
+<!--                        <td><img width="100" th:src="@{/picture/{id}(id=${lineItem.productRepr.pictureIds[0]})}" alt="">-->
+<!--                        </td>-->
+                        <td><img width="100" th:src="@{{pictureServiceUrl}/picture/{id}(id=${lineItem.productRepr.pictureIds[0]}, pictureServiceUrl=${pictureServiceUrl})}" alt="">
                         </td>
                         <td>[[${lineItem.productRepr.name}]]<br>
                             Color : [[${lineItem.color}]]<br>

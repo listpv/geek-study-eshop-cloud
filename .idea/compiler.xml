@@ -8,9 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="shop-database" />
         <module name="shop-picture-service-app" />
-        <module name="shop-picture-service" />
-        <module name="shop-admin-ui" />
         <module name="spring-cloud-config" />
+        <module name="spring-gateway" />
+        <module name="shop-picture-service" />
+        <module name="spring-eureka-server" />
+        <module name="shop-admin-ui" />
         <module name="shop-ui" />
       </profile>
     </annotationProcessing>
@@ -22,6 +24,8 @@
       <module name="shop-picture-service-app" target="11" />
       <module name="shop-ui" target="11" />
       <module name="spring-cloud-config" target="11" />
+      <module name="spring-eureka-server" target="11" />
+      <module name="spring-gateway" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -32,6 +36,8 @@
       <module name="shop-picture-service-app" options="-parameters" />
       <module name="shop-ui" options="-parameters" />
       <module name="spring-cloud-config" options="-parameters" />
+      <module name="spring-eureka-server" options="-parameters" />
+      <module name="spring-gateway" options="-parameters" />
     </option>
   </component>
 </project>

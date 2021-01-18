@@ -46,7 +46,8 @@ Lower Header Section
                                 <div th:each="picId, iter :${product.pictureIds}"
                                      th:classappend="${iter.first} ? 'active' : ''" class="item">
                                     <a href="#">
-                                        <img th:src="@{/picture/{id}(id=${picId})}" alt="" style="width:100%">
+<!--                                        <img th:src="@{/picture/{id}(id=${picId})}" alt="" style="width:100%">-->
+                                        <img th:src="@{{pictureServiceUrl}/picture/{id}(id=${picId}, pictureServiceUrl=${pictureServiceUrl})}" alt="" style="width:100%">
                                     </a>
                                 </div>
                             </div>
