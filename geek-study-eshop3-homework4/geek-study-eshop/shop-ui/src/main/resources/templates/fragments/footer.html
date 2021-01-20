@@ -80,6 +80,9 @@ Footer
 </div>
 
 <th:block th:fragment="scripts">
+
+    <div th:include="fragments/chat :: chat"/>
+
     <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
     <!-- Placed at the end of the document so the pages load faster -->
     <script th:src="@{/webjars/jquery/1.12.4/jquery.js}"></script>
@@ -87,6 +90,11 @@ Footer
     <script th:src="@{/webjars/jquery-easing/1.3/jquery.easing.js}"></script>
     <script th:src="@{/webjars/jquery.scrollTo/1.4.14/jquery.scrollTo.js}"></script>
     <script th:src="@{/assets/js/shop.js}"></script>
+
+    <script th:src="@{/webjars/sockjs-client/1.0.2/sockjs.min.js}"></script>
+    <script th:src="@{/webjars/stomp-websocket/2.3.3/stomp.min.js}"></script>
+    <script th:src="@{/assets/js/chat.js}"></script>
+
 </th:block>
 
 </html>
