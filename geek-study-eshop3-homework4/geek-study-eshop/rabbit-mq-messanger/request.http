@@ -1,0 +1,3 @@
+POST http://localhost:8081/send?user=user1
+
+Some text message 0

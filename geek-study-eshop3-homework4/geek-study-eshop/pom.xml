@@ -30,6 +30,8 @@
         <module>shop-admin-ui</module>
         <module>shop-ui</module>
         <module>spring-cloud-config</module>
+        <module>rabbit-mq-messanger</module>
+        <module>shop-admin-ui-test</module>
     </modules>
 
     <dependencyManagement>

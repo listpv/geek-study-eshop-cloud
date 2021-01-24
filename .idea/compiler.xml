@@ -10,15 +10,19 @@
         <module name="shop-picture-service-app" />
         <module name="spring-cloud-config" />
         <module name="spring-gateway" />
+        <module name="shop-admin-ui-test" />
         <module name="shop-picture-service" />
         <module name="spring-eureka-server" />
         <module name="shop-admin-ui" />
+        <module name="rabbit-mq-messanger" />
         <module name="shop-ui" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="geek-study-eshop" target="11" />
+      <module name="rabbit-mq-messanger" target="11" />
       <module name="shop-admin-ui" target="11" />
+      <module name="shop-admin-ui-test" target="15" />
       <module name="shop-database" target="11" />
       <module name="shop-picture-service" target="11" />
       <module name="shop-picture-service-app" target="11" />
@@ -30,7 +34,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="rabbit-mq-messanger" options="-parameters" />
       <module name="shop-admin-ui" options="-parameters" />
+      <module name="shop-admin-ui-test" options="-parameters" />
       <module name="shop-database" options="-parameters" />
       <module name="shop-picture-service" options="-parameters" />
       <module name="shop-picture-service-app" options="-parameters" />
