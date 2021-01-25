@@ -7,6 +7,8 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.geekbrains.DriverInitializer;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -66,8 +68,8 @@ public class BrandSteps {
     public void iProvideBrandAs(String brand) throws Throwable{
         WebElement webElement = webDriver.findElement(By.id("name"));
         Thread.sleep(1000);
-        webElement.sendKeys("adidas");
-//        webElement.sendKeys(brand);
+//        webElement.sendKeys("adidas");
+        webElement.sendKeys(brand);
         Thread.sleep(2000);
 
     }
@@ -82,9 +84,18 @@ public class BrandSteps {
 
     @Then("^brand should be \"([^\"]*)\"$")
     public void brandShouldBe(String brand) throws Throwable{
-        WebElement webElement = webDriver.findElement(By.cssSelector("#brands > tbody > tr:nth-child(5) > td:nth-child(2)"));
-//        assertThat(webElement.getText()).isEqualTo(brand);
-        assertThat(webElement.getText()).isEqualTo("adidas");
+        int i = 1;
+        while (true){
+            try {
+                webDriver.findElement(By.cssSelector("#brands > tbody > tr:nth-child(" + i + ")"));
+                i++;
+            }catch (Exception e){
+                break;
+            }
+        }
+        WebElement webElement = webDriver.findElement(By.cssSelector("#brands > tbody > tr:nth-child(" + (i - 1) + ") > td:nth-child(2)"));
+        assertThat(webElement.getText()).isEqualTo(brand);
+//        assertThat(webElement.getText()).isEqualTo("adidas");
 
     }
 
